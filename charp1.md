@@ -77,11 +77,12 @@
 
 &emsp;&emsp; @import 指令可以用于外部样式表中，引入需要使用的其他样式表中的样式，例如：
 ```CSS
-        @import url(http://...)
-        @import url(basic-text.css)
-        @import url(printer.css) print;
-        body{color:red;}
-        h1{color:blue;}
+    @import url(http://...);
+    @import url(basic-text.css);
+    @import url(printer.css) print;
+    
+    body{color:red;}
+    h1{color:blue;}    
 ```
     CSS 要求 @import指令出现在样式表中其他规则之前，否则兼容代理会将其忽略（IE除外）
 
