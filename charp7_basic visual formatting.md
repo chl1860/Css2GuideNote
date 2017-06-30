@@ -1,4 +1,4 @@
-<style>
+<style><!--
     body{
         font-size:18px;
     }
@@ -21,7 +21,8 @@
     }
     li p{
         text-indent:0;
-    }
+    }-->
+    
 </style>
 
 #### 1. 基本框
