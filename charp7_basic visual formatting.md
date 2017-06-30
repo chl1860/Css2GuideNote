@@ -156,6 +156,33 @@ the width of a border can never be negative
 &emsp;&emsp;行内框在行中根据其 *vertical-align* 属性值垂直对齐
 
 ##### 3) 行内格式化
+所有元素都有line-height，这个值会显著影响行内元素如何显示
+
+###### a. 如何确定行高？
+- *line-height* 实际上影响行内元素和其他行内内容，而不会直接影响块级元素。也可以为一个块级元素设置 *line-height* 值，但是这个值只是应用到块级元素的内联内容时才会有影响 (假装块级元素的内容都包含在一个虚构的 *line* 行内元素中)\
+
+- 如果没有内容 *line-height* 对于创建行框来说没有任何区别
+根据 CSS 规范在块级元素上声明 *line-height* 会为该块级元素的内容设置一个最小行框高度
+
+###### b. 行内非替换元素
+*建立行框*\
+    &emsp;&emsp;对于行内非替换元素或匿名文本某一部分, font-size值确定了内容区高度。如果一个行内元素font-size值为15px,则内容区的高度为 15px,因此元素中所有em框的高度为15px
+    ![inline_embox](src/img/inline_em_box.png)
+    
+    &emsp;&emsp;如果一个行内非替换元素的font-size 为 15px, line-height 为21px,则相差6px.用户代理将这6px 一分为二,将其一半分别用到内容区的顶部和底部,这就得到了行框
+    ![](src/img/inline_em_box_with_lineheight.png)
+
+    行内框确定了整个行框的高度. 行框定义为，行中最高行内框的顶端到最低行内框底端的距离,而且各行框的顶端都挨着上一行框的底端
+
+*垂直对齐*\
+
+
+
+
+
+
+
+
 
 
 
