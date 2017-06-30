@@ -1,30 +1,3 @@
-<style><!--
-    body{
-        font-size:18px;
-    }
-    h4{
-        font-size:1.2em;
-    }
-    h5{
-        font-size:0.9em;
-    }
-    h5 h6{
-        text-indent:2em;
-        font-size:inherit;
-    }
-    p{
-        text-indent:2em;
-    }
-    li{
-        margin-top:15px;
-        margin-bottom:10px;
-    }
-    li p{
-        text-indent:0;
-    }-->
-    
-</style>
-
 #### 1. 基本框
 Padding cannot be a negative value, but margins can\
 边框使用已定义样式生成，默认（未设定 border-color）为元素内容前景色\
