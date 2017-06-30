@@ -1,3 +1,29 @@
+<style>
+    body{
+        font-size:18px;
+    }
+    h4{
+        font-size:1.2em;
+    }
+    h5{
+        font-size:0.9em;
+    }
+    h5 h6{
+        text-indent:2em;
+        font-size:inherit;
+    }
+    p{
+        text-indent:2em;
+    }
+    li{
+        margin-top:15px;
+        margin-bottom:10px;
+    }
+    li p{
+        text-indent:0;
+    }
+</style>
+
 #### 1. 基本框
 Padding cannot be a negative value, but margins can\
 边框使用已定义样式生成，默认（未设定 border-color）为元素内容前景色\
@@ -5,7 +31,7 @@ Padding cannot be a negative value, but margins can\
 the width of a border can never be negative
      
 ##### 1) 包含块
-包含块由最近的块级祖先框、表单元格或行内块祖先框的内容边距构成\
+包含块由最近的块级祖先框、表单元格或行内块祖先框的内容边距构成
 
 行内元素的摆放方式并不直接依赖于包含块
 
@@ -43,30 +69,30 @@ the width of a border can never be negative
 ##### 4) 不只一个auto
 - 如果两个外边距设为auto，它们会设置为相等的长度，因此将元素在其父元素中居中
         
-&emsp;&emsp;&emsp;&emsp;注意！！ text-align 只应用于块级元素的内联元素，所以将元素的text-align设为center并不能将这个元素居中
+注意！！ text-align 只应用于块级元素的内联元素，所以将元素的text-align设为center并不能将这个元素居中
         
 - 将某个外边距以及 width 设置为auto。设置为 auto 的外边距会减为0，然后width会设置为所需的值，使得元素完全填充其包含块
         
 - 如果 3 个值都为auto，两外边距都会设置为0，而width会尽可能宽，这种情况与默认情况是相同的，即没有为外边距和 width 显式声明任何值
         
-&emsp;&emsp;&emsp;&emsp;注意！！由于水平边距不会合并，父元素的内边距，边距和外边距，可能影响其子元素。这种效果是间接的即一个元素的边距可能会为子元素带来偏移\
-&emsp;&emsp;&emsp;&emsp;外边距可以为负值，但 7 个属性的总和要等于父元素的 width
+注意！！由于水平边距不会合并，父元素的内边距，边距和外边距，可能影响其子元素。这种效果是间接的即一个元素的边距可能会为子元素带来偏移\
+外边距可以为负值，但 7 个属性的总和要等于父元素的 width
 
 ##### 5) 百分数
-&emsp;&emsp;&emsp;&emsp;如果width，外边距和内边距设置为百分数会应用同样的规则
+如果width，外边距和内边距设置为百分数会应用同样的规则
 
 ##### 6) 替换元素
-&emsp;&emsp;&emsp;&emsp;非替换块级元素的所有规则同样适用于替换块级元素，只有一个例外:如果 width 为 auto，元素的宽度则是内容固有宽度\
+非替换块级元素的所有规则同样适用于替换块级元素，只有一个例外:如果 width 为 auto，元素的宽度则是内容固有宽度\
 
-&emsp;&emsp;&emsp;&emsp;如果一个替换元素的 width 不同于其固有宽度，height也会成比例变化，除非 height 显式设置为一个特定值。反过来，如果height 设置了值，width 设置为 auto，则 width 将随 height 的变化成比例调整
+如果一个替换元素的 width 不同于其固有宽度，height也会成比例变化，除非 height 显式设置为一个特定值。反过来，如果height 设置了值，width 设置为 auto，则 width 将随 height 的变化成比例调整
 
 ##### 7) 垂直格式化
-&emsp;&emsp;&emsp;&emsp;一个元素的默认高度由其内容决定。高度还会受内容宽度影响；段落越窄，相应地就会越高，以便容纳其中所有的内联内容
+一个元素的默认高度由其内容决定。高度还会受内容宽度影响；段落越窄，相应地就会越高，以便容纳其中所有的内联内容
 
-&emsp;&emsp;&emsp;&emsp;可以给任何块级元素设置显式高度
-&emsp;&emsp;&emsp;&emsp;如果显示内容高度大于元素框高度，用户代理的行为将取决于 overflow 属性的值（及用户代理对这个属性的支持程度）
+可以给任何块级元素设置显式高度
+如果显示内容高度大于元素框高度，用户代理的行为将取决于 overflow 属性的值（及用户代理对这个属性的支持程度）
 
-&emsp;&emsp;&emsp;&emsp;height 定义了内容区高度
+定义了内容区高度
 
 ##### 8) 垂直属性
 - 垂直格式化有 7 个属性：margin-top, border-top, padding-top, height, padding-bottom, border-bottom, margin-bottom
@@ -80,7 +106,7 @@ the width of a border can never be negative
 - 如果将一个元素的上下外边距设置为 auto， 实际上它们会重置为 0，使元素框没有外边距
 
 ##### 9) 百分数高度
-&emsp;&emsp;&emsp;&emsp;如果一个块级正常流元素的 height 设置为一个百分数，这个值则是包含块 height 的一个百分数，如以下标记想应的段落高度为 3em
+如果一个块级正常流元素的 height 设置为一个百分数，这个值则是包含块 height 的一个百分数，如以下标记想应的段落高度为 3em
 
 ```html
     <div style="height:6em">
@@ -88,9 +114,9 @@ the width of a border can never be negative
     </div>
 ```
         
-&emsp;&emsp;&emsp;&emsp;由于上、下外边距设置为 auto 时，实际上它们的高度为 0， 因此将元素垂直居中的唯一办法就是把上、下外边距设置为 25%
+由于上、下外边距设置为 auto 时，实际上它们的高度为 0， 因此将元素垂直居中的唯一办法就是把上、下外边距设置为 25%
         
-&emsp;&emsp;&emsp;&emsp;如果没有显式声明包含块的 height，百分数高度将会重置为 auto，如果修改上例， 使 div 的 height 为 auto， 段落将与 div 本身的高度完全相同：
+如果没有显式声明包含块的 height，百分数高度将会重置为 auto，如果修改上例， 使 div 的 height 为 auto， 段落将与 div 本身的高度完全相同：
 
 ```html
     <div style='height: auto'>
@@ -104,22 +130,22 @@ the width of a border can never be negative
 - 如果块级正常流元素的高度设置为 height: auto， 而且只有块级子元素，其默认高度将是从最高块级子元素的外边框边界到最低块级子元素外边框边界之间的距离
 
 ##### 11) 合并垂直外边距
-&emsp;&emsp;&emsp;&emsp;垂直相邻外边距的合并行为只应用于外边距，如果元素有内边距和边框它们觉不会合并
+垂直相邻外边距的合并行为只应用于外边距，如果元素有内边距和边框它们觉不会合并
 
 ```css
     li {margin-top:10px; margin-bottom: 15px;}
 ```
-&emsp;&emsp;&emsp;&emsp;在显示这个列表时，相邻列表项之间的距离是 15px， 而不是25px，之所以这样是因为相邻外边距会沿着竖轴合并。换句话说，两个外边距中较小的一个会被较大的一个合并
+在显示这个列表时，相邻列表项之间的距离是 15px， 而不是25px，之所以这样是因为相邻外边距会沿着竖轴合并。换句话说，两个外边距中较小的一个会被较大的一个合并
 
 ##### 12) 负外边距
-&emsp;&emsp;&emsp;&emsp;负外边距对垂直格式化确实有影响
+负外边距对垂直格式化确实有影响
 
 - 如果垂直外边距设为负值，浏览器会取两个外边距绝对值的最大值。
 - 如果一个正外边距与一个负外边距合并，会从正外边距减去负外边距的绝对值。换句话说，负值要增加到正值，所得到的就是元素间的距离
         
-&emsp;&emsp;&emsp;&emsp;注意！！ 上、下外边距为负时有一种“拉近”效果。 实际上与负水平边距使元素超出其父元素没有什么区别
+注意！！ 上、下外边距为负时有一种“拉近”效果。 实际上与负水平边距使元素超出其父元素没有什么区别
 
-&emsp;&emsp;&emsp;&emsp;负外边距使得两个元素彼此重叠，文档中后出现的正常流元素可能会覆盖较早出现的元素
+负外边距使得两个元素彼此重叠，文档中后出现的正常流元素可能会覆盖较早出现的元素
 
 ##### 13) 列表项
 - 列表项前面通常有一个标志，如一个圆点或一个数。
@@ -141,7 +167,7 @@ the width of a border can never be negative
 
 - **行框**：包含该行中最高点和最低点的最小框
 
-&emsp;&emsp;CSS 还提供了一组行为和有用的概念
+###### CSS 还提供了一组行为和有用的概念
 
 - 内容区类似于一个块级元素的内容框
 
@@ -153,28 +179,37 @@ the width of a border can never be negative
 
 - 替换元素的外边距和边框确实会影响该元素行内框的高度，相应地，也可能影响包含该元素的行框的高度
 
-&emsp;&emsp;行内框在行中根据其 *vertical-align* 属性值垂直对齐
+行内框在行中根据其 *vertical-align* 属性值垂直对齐
 
-##### 3) 行内格式化
+<h5>3) 行内格式化</h5>
+
 所有元素都有line-height，这个值会显著影响行内元素如何显示
 
-###### a. 如何确定行高？
+<h6>a. 如何确定行高？</h6>
+
 - *line-height* 实际上影响行内元素和其他行内内容，而不会直接影响块级元素。也可以为一个块级元素设置 *line-height* 值，但是这个值只是应用到块级元素的内联内容时才会有影响 (假装块级元素的内容都包含在一个虚构的 *line* 行内元素中)\
 
 - 如果没有内容 *line-height* 对于创建行框来说没有任何区别
 根据 CSS 规范在块级元素上声明 *line-height* 会为该块级元素的内容设置一个最小行框高度
 
 ###### b. 行内非替换元素
-*建立行框*\
-    &emsp;&emsp;对于行内非替换元素或匿名文本某一部分, font-size值确定了内容区高度。如果一个行内元素font-size值为15px,则内容区的高度为 15px,因此元素中所有em框的高度为15px
-    ![inline_embox](src/img/inline_em_box.png)
+<em>建立行框</em>
+<p>对于行内非替换元素或匿名文本某一部分, font-size值确定了内容区高度。如果一个行内元素font-size值为15px,则内容区的高度为 15px,因此元素中所有em框的高度为15px
+</p>
+    <p>
+        <img src='src/img/inline_em_box.png' alt='img'/>
+    </p>
     
-    &emsp;&emsp;如果一个行内非替换元素的font-size 为 15px, line-height 为21px,则相差6px.用户代理将这6px 一分为二,将其一半分别用到内容区的顶部和底部,这就得到了行框
-    ![](src/img/inline_em_box_with_lineheight.png)
+    如果一个行内非替换元素的font-size 为 15px, line-height 为21px,则相差6px.用户代理将这6px 一分为二,将其一半分别用到内容区的顶部和底部,这就得到了行框
+    
+<p>
+    <img src='src/img/inline_em_box_with_lineheight.png' alt='img'/>
+</p>
 
     行内框确定了整个行框的高度. 行框定义为，行中最高行内框的顶端到最低行内框底端的距离,而且各行框的顶端都挨着上一行框的底端
+    
 
-*垂直对齐*\
+*垂直对齐*
 
 
 
