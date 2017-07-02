@@ -183,12 +183,76 @@ the width of a border can never be negative
     行内框确定了整个行框的高度. 行框定义为，行中最高行内框的顶端到最低行内框底端的距离,而且各行框的顶端都挨着上一行框的底端
     
 
-*垂直对齐*
+*垂直对齐*\
+    vertical-align
+- top:将元素行内框的顶端与包含该元素的行框的顶端对齐
+- bottom：将元素行内框的底端与包含该元素的行框的底端对齐
+- text-top: 将元素行内框的顶端与父元素内容区顶端对齐
+- text-bottom: 将元素行内框的底端与父元素内容区底端对齐
+- middle: 将元素内框的垂直中点与父元素基线上 0.5ex 处的一点对齐
+- super: 将元素的内容区和行内框上移.上移的距离未定，可能因用户代理不同而不同
+- sub: 与 super 相反
+- <percentage> 将元素上移或下移一定距离,这个距离由line-height 值指定的一个百分数确定
 
+*管理 line-height*\
+改变一个行内元素的 line-height 可能导致文本行相互重叠。一种办法是对 font-size 有改变的元素结合使用 em 单位
+```css
+    p {font-size:14px; line-height: 1em;}
+    big{font-size:250%; line-height: 1em;}
 
+    //或者
+    p {font-size: 14px; line-height: 1;}
+    big {font-size: 250%}
+```
 
+```html
+    <p>Not only does this paragraph have "normal" text, but italso<br>
+    contains a line in which <big>some big text</big> is found.<br>
+    This large text helps illustrate our point.
+    </p>
+```
 
+*缩放行高*\
+设置line-height的最好办法是使用一个原始数字值。这个数字会成为缩放因子。例如：
+```css
+/**
+* 文档中所有元素的 line-height 都是其 font-size 的 1.5 倍
+*/
+body {line-height:1.5}
+```
 
+*增加框属性*\
+行内元素的边框边界由 font-size 而不是 line-height 控制。换句话说，如果一个 span 元素的 font-size 为 12px， line-height 为 36px， 其内容区就是 12px 高， 边框将包围该内容区\
+或者,可以为行内元素指定内边距， 这会把边框从文本本身拉开：
+
+```css
+/**
+* 内边距并没有改变内容区的具体形状，不过它会影响这个元素行内框的高度
+* 向一个行内元素增加边框也不会影响行框的生成和布局
+*/
+span {border: 1px solid black; padding: 4px;}
+```
+
+实际上，外边距不会应用到行内非替换元素的顶端和底端，它们不影响行框的高度。不过，行内元素的两端则是另一回事。\
+尽管内边距和外边距不影响行高，但是它们能影响一个元素内容的布局
+
+*行内替换元素*\
+一把认为行内替换元素有固有的高度和宽度\
+有固有高度的替换元素可能导致行框比正常要高。这不会改变行中任何元素的 line-height值，包括替换元素本身。相反，只是会让行框的高度恰好包含替换元素（以及框属性）。
+
+*增加框属性*\
+内边距和边框会影响行框的高度，因为它们要作为行内替换元素行内框的一部分。负外边距会使行内框小于正常大小，负外边距是使行内元素挤入其他行的唯一办法
+
+*替换元素和基线*\
+默认情况下，行内替换元素位于基线上。如果向替换元素增加边距或边框，内容区会上移。替换元素没有自己的基线，所以相对来讲最好的办法是将其底端与基线对齐。因此实际上是下外边距底端与基线对齐，这导致只要行内替换元素是块级元素或表单元格元素的唯一后代，其内容都会位于基线上方。最常见的解决方法是使其成为块级元素这样就不会生成行框。例如
+
+```css
+    td {font-size: 12px;}
+    img.block{display：block;}
+```
+```html
+    <td><img src="space.gif" height="1" width="10" class="block"/></td>
+```
 
 
 
